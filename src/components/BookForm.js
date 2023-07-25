@@ -1,26 +1,28 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addBook } from '../redux/books/booksSlice';
+import { addBook, fetchBooks } from '../redux/books/booksSlice';
 import '../styles/BookForm.css';
 
 const BookForm = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
-  const [category, setcategory] = useState('');
+  const [category, setCategory] = useState('');
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (title && author && category) {
       const newBook = {
-        item_id: `item${Date.now()}`,
         title,
         author,
-        category: '',
+        category,
       };
-      dispatch(addBook(newBook));
+      dispatch(addBook(newBook)).then(() => {
+        dispatch(fetchBooks());
+      });
       setTitle('');
       setAuthor('');
+      setCategory('');
     }
   };
 
@@ -34,19 +36,17 @@ const BookForm = () => {
           placeholder="Title"
           onChange={(e) => setTitle(e.target.value)}
         />
-
         <input
           type="text"
           value={author}
           placeholder="Author"
           onChange={(e) => setAuthor(e.target.value)}
         />
-
         <input
           type="text"
           value={category}
-          placeholder="category"
-          onChange={(e) => setcategory(e.target.value)}
+          placeholder="Category"
+          onChange={(e) => setCategory(e.target.value)}
         />
         <button type="submit">Add Book</button>
       </form>
