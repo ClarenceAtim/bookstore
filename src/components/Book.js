@@ -6,15 +6,9 @@ const Book = ({
   title, author, category, onDelete,
 }) => (
   <div>
-    <h3>
-      {title}
-    </h3>
-    <p>
-      {author}
-    </p>
-    <p>
-      {category}
-    </p>
+    <h3>{title}</h3>
+    <p>{author}</p>
+    <p>{category}</p>
     <button type="button" onClick={onDelete}>
       Delete
     </button>
@@ -25,7 +19,7 @@ Book.propTypes = {
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
-  onDelete: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired, // Add the onDelete prop
 };
 
 export default Book;
