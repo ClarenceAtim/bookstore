@@ -2,15 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../styles/Book.css';
 
-const Book = ({ title, author, onDelete }) => (
+const Book = ({
+  title, author, category, onDelete,
+}) => (
   <div>
     <h3>
-      Title:
       {title}
     </h3>
     <p>
-      Author:
       {author}
+    </p>
+    <p>
+      {category}
     </p>
     <button type="button" onClick={onDelete}>
       Delete
@@ -21,6 +24,7 @@ const Book = ({ title, author, onDelete }) => (
 Book.propTypes = {
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
   onDelete: PropTypes.func.isRequired,
 };
 
