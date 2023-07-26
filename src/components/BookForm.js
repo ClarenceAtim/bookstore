@@ -27,10 +27,11 @@ const BookForm = () => {
   };
 
   return (
-    <div>
-      <h2>Add New Book</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="form">
+      <h2 className="form-title">Add New Book</h2>
+      <form className="add-form" onSubmit={handleSubmit}>
         <input
+          className="title-input"
           type="text"
           value={title}
           placeholder="Title"
@@ -48,7 +49,7 @@ const BookForm = () => {
           placeholder="Category"
           onChange={(e) => setCategory(e.target.value)}
         />
-        <button type="submit">Add Book</button>
+        <button className="primary-button-big" type="submit">Add Book</button>
       </form>
     </div>
   );
