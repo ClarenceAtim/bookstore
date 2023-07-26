@@ -5,6 +5,7 @@ import BookForm from './BookForm';
 const Home = () => (
   <div>
     <BookList />
+    <div className="horizontal-divider" />
     <BookForm />
   </div>
 );
