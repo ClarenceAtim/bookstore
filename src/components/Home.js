@@ -3,8 +3,9 @@ import BookList from './BookList';
 import BookForm from './BookForm';
 
 const Home = () => (
-  <div>
+  <div className="container">
     <BookList />
+    <div className="horizontal-divider" />
     <BookForm />
   </div>
 );
